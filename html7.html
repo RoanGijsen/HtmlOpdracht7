@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<!-- de div -->
+<div id="myDiv">
+    Er is 0 jaar voorbij
+  </div>
+
+  <!--De knop om jaargetijden mee te veranderen met een parameter om dezelfde functie aan te kunnen roepen-->
+<button id="KNA" onclick="KNA('AFBA')">KNA</button>
+<button id="KNB" onclick="KNA('AFBB')">KNB</button>
+<button id="KNC" onclick="KNC()">KNC</button>
+
+<!--Begin plaatje-->
+<img id="AFBA" src="https://cds.radio1.be/sites/default/files/styles/1200x600/public/article/2016_07/zomer_zee.jpg?itok=B-5Lq60I" style="width:500px; height:300px">
+<img id="AFBB" src="https://cds.radio1.be/sites/default/files/styles/1200x600/public/article/2016_07/zomer_zee.jpg?itok=B-5Lq60I" style="width:500px; height:300px">
+
+
+
+</body>
+</html>
+
+<script>
+    // 2 tellers, 1 voor de jaargetijde en 1 voor de jaren x begint op 2 omdat het zomer is
+    //Div om de jaren aan te passen
+    var x = 2;
+    var jaar = 0
+    var s = document.getElementById("myDiv");  
+
+
+function KNA(k)
+{
+    // x ++ om de jaargetijden te veranderen
+    x++;
+    
+   // if statement om aan te geven wanneer het volgend jaar is
+    if (x % 4 == 0)
+    {
+        jaar ++;
+        s.innerHTML = ("Er is " + jaar + " jaar voorbij");
+
+    }
+
+    // if statements om de plaatjes aan te passen
+    if ((x + 1) % 4 == 0)
+    {
+        document.getElementById(k).src="https://www.scientias.nl/wp-content/uploads/2019/09/autumn_forest_1569222828.jpg";
+       
+    }
+    else if (x % 4 == 0)
+    {
+        document.getElementById(k).src="https://www.chaptertravel.com/wp-content/uploads/2018/11/winter-in-the-Netherlands.jpeg";
+    }
+    else if ((x + 3) % 4 == 0)
+    {
+        document.getElementById(k).src="https://zachtekracht.nu/wp-content/uploads/sites/33/2014/03/spring-awakening-1197602_1920.jpg"; 
+    }
+    else
+    {
+        document.getElementById(k).src="https://cds.radio1.be/sites/default/files/styles/1200x600/public/article/2016_07/zomer_zee.jpg?itok=B-5Lq60I"; 
+    }
+
+} 
+// Controleert of de src van de plaatjes elementen hetzelfde zijn
+function KNC()
+{
+    var x = document.getElementById("AFBA").src;
+    var y = document.getElementById("AFBB").src;
+    if (x == y)
+    {
+        console.log("Hetzelfde");
+    }
+    else
+    {
+        console.log("Niet hetzelfde");
+    }
+
+}
+
+
+
+   
+
+
+</script>
